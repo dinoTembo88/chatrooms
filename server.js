@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 var cache = {};
+
 // chat related
 var chatServer = require('./lib/chat_server');
 
@@ -18,6 +19,7 @@ function sendFile(response, filePath, fileContents) {
 }
 
 function serveStatic(response, cache, absPath) {
+	
 	if (cache[absPath]) {
 		sendFile(response, absPath, cache[absPath]);
 	} else {
